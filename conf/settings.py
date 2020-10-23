@@ -13,7 +13,7 @@ data_path = os.path.join(root_path, 'data')                                     
 template_name ="summary_template.html"                                          #测试报告模板名称
 clear_report = True                                                            #是否清空旧测试报告
 #-------------------------------------邮箱设置-------------------------------------------
-send_email_path = "1436052452@qq.com"                                           # 发送方邮件
-receive_email_path = "1436052452@qq.com"                                        # 接收方邮件
-email_authorization_code = "mapukswsdtxtggje"                                   # 发送方邮件授权码
+send_email_path = "XXXXXXX@qq.com"                                           # 发送方邮件
+receive_email_path = "XXXXXXX@qq.com"                                        # 接收方邮件
+email_authorization_code = "XXXXXXXXXX"                                   # 发送方邮件授权码
 message_title = "自动化测试报告"                                                # 邮件标题
