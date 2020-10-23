@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<html>
+<head>
+    <title>测试报告</title>
+    <style>
+        .fail {
+            color: red;
+			
+			text-align: center;
+        }
+        .success {
+            color: green;
+			
+			text-align: center;
+        }
+		.details-col-elapsed {
+			
+			text-align: center;
+		}
+		.details-col-msg {
+			
+			text-align: center;
+			background-color:#ccc;
+		}
+    </style>
+</head>
+<body>
+<div>
+<div class="panel panel-primary" style="margin-right: 20px;">
+	<div class="panel-heading">
+		<h2>
+			<span class="text-success"><i class="glyphicon glyphicon-flag"></i></span>《{{project}}》<small><font color="white">测试结果</font></small>
+		</h2>
+	</div>
+	<div class="panel-body">
+		<h4>
+			测试设备：<code>{{device}}</code>
+		</h4>
+		<h4>
+			开始时间：<code><font color="lightgreen">{{stime}}</font></code>
+		</h4>
+		<h4>
+			结束时间：<code><font color="lightgreen">{{etime}}</font></code>
+		</h4>
+		<h4>
+			累计耗时：<code><span style="background-color:lightgray;border-radius:5px;padding-left:3px;padding-right:3px;"><font color="blue">{{duration}}秒</font></span></code>
+		</h4>
+		<h4>测试结果：Total-&nbsp;<font color="DodgerBlue">{{results|length}}</font>,&nbsp;Success-&nbsp<font color="green">{{success}}</font>,&nbsp;Fail-&nbsp;<font color="red">{{fail}}</font></h4>
+		<div class="col-xs-9">
+		    <table width="800" border="thin" cellspacing="0" cellpadding="0" class='table table-striped'>
+		        <tr  width="600">
+		        	<th class="details-col-msg col-xs-1">序号</th>
+		            <th width="300" class='details-col-msg   col-xs-3'>用例名称</th>
+		            <th class='details-col-msg  col-xs-3'>执行结果</th>
+		        </tr>
+		        {% for r in results %}
+		        <tr>
+		        	<td class="details-col-elapsed  col-xs-1">{{loop.index}}</td>
+		            <td class='details-col-elapsed  col-xs-3'><a href="../log/{{r.name}}/log.html" target="view_window">{{r.name}}</a></td>
+		            <td class="{{'success' if r.result else 'fail'}}   col-xs-3">{{"成功" if r.result else "失败"}}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+		</div>
+		<div class="col-xs-5 pull-left">
+			
+				<div id="pie_echarts" class="layui-card-body" style="width: 100%;height:200%;">
+				</div>
+			
+		</div>
+	</div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.min.js"></script>
+<script>
+// 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('pie_echarts'));
+    // 指定图表的配置项和数据
+    option = {
+        title: {
+            text: '执行结果统计：',
+            x: 'left'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        color: ['#CD5C5C',  '#9ACD32'],
+        stillShowZeroSum: false,
+        series: [
+            {
+                name: '测试结果',
+                type: 'pie',
+                radius: '80%',
+                center: ['60%', '60%'],
+                data: [
+                    {value: {{fail|tojson}}, name: '失败'},
+                    {value: {{success|tojson}}, name: '成功'}
+                   
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(128, 128, 128, 0.5)'
+                    },
+					normal:{ 
+					   label:{ 
+						  show: true, 
+						  formatter: '{b} : {c} ({d}%)' 
+						}, 
+						labelLine :{show:true} 
+					} 
+                }
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+</script>
+</html>

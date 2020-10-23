@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>Airtest Report </title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="D:/python3.7/lib/site-packages/airtest/report/css/report.css" rel="stylesheet">
+
+    <script src="D:/python3.7/lib/site-packages/airtest/report/js/jquery-1.10.2.min.js"></script>
+    <script src="D:/python3.7/lib/site-packages/airtest/report/js/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+    <script src="D:/python3.7/lib/site-packages/airtest/report/js/langpack/zh_CN.js" charset="utf-8" type="text/javascript"></script>
+    <script src="D:/python3.7/lib/site-packages/airtest/report/js/lazyload.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
+      data = {"steps": [{"title": "Final Error", "time": 1603434314.683344, "code": null, "screen": null, "desc": null, "traceback": "Traceback (most recent call last):\n  File \"D:\\python3.7\\lib\\site-packages\\airtest\\cli\\runner.py\", line 61, in runTest\n    exec(compile(code.encode(\"utf-8\"), pyfilepath, 'exec'), self.scope)\n  File \"E:\\\u9ec4\u632f\u65ed\\\u8d39\u7528\u7ba1\u7406\u7cfb\u7edf\u81ea\u52a8\u5316\u6d4b\u8bd5\u7528\u4f8b\\air\\test01_upload_invoice.air\\test01_upload_invoice.py\", line 12, in <module>\n    driver = WebChrome()\n  File \"D:\\python3.7\\lib\\site-packages\\airtest_selenium\\proxy.py\", line 31, in __init__\n    service_log_path=service_log_path, desired_capabilities=desired_capabilities)\n  File \"D:\\python3.7\\lib\\site-packages\\selenium\\webdriver\\chrome\\webdriver.py\", line 81, in __init__\n    desired_capabilities=desired_capabilities)\n  File \"D:\\python3.7\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 157, in __init__\n    self.start_session(capabilities, browser_profile)\n  File \"D:\\python3.7\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 252, in start_session\n    response = self.execute(Command.NEW_SESSION, parameters)\n  File \"D:\\python3.7\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"D:\\python3.7\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\nselenium.common.exceptions.SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 78\n\n", "assert": null}], "name": "E:\\\u9ec4\u632f\u65ed\\\u8d39\u7528\u7ba1\u7406\u7cfb\u7edf\u81ea\u52a8\u5316\u6d4b\u8bd5\u7528\u4f8b\\air\\test01_upload_invoice.air", "scale": 0.5, "test_result": false, "run_end": 1603434314.683344, "run_start": 1603434314.683344, "static_root": "D:/python3.7/lib/site-packages/airtest/report/", "lang": "en", "records": [], "info": {"name": "test01_upload_invoice.air", "path": "E:\\\u9ec4\u632f\u65ed\\\u8d39\u7528\u7ba1\u7406\u7cfb\u7edf\u81ea\u52a8\u5316\u6d4b\u8bd5\u7528\u4f8b\\air\\test01_upload_invoice.air\\test01_upload_invoice.py", "author": "janson", "title": "", "desc": ""}, "log": "log.txt", "console": ""}
+      lang = new Lang();
+      lang.init({
+        defaultLang: 'en',
+        currentLang: 'en'
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div id="main" class="main col-md-12">
+          <div id="back_multi"></div>
+          <h1 class="title">Airtest Report </h1>
+          
+          <div class="summary" >
+
+            <div class="show-horizontal">
+              <div class="info info1">
+                <div class="info-left">
+                  <img id='result-img' />
+                </div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Airtest Report</span>
+                    <label id='result-desc' lang="en"></label>
+                  </div>
+                  <div class="info-content">
+                    <div class='info-sub start'></div>
+                    <div class='info-sub time'></div>
+                  </div>
+                  <div class="info-toal">
+                    <div class="info-step">
+                      <span class="info-name" lang="en">Steps: </span>
+                      <span class="info-value">1</span>
+                    </div>
+                    <div class="info-time">
+                      <span class="info-name" lang="en">Time: </span>
+                      <span class="info-value duration">xxx</span>
+                    </div>
+                    
+                    
+                    <div class="info-log">
+                      <span class="info-name" lang="en">Log: </span>
+                      <span class="info-value log">
+                        <a href="log.txt" target="_blank" download="log.txt">log.txt <img src="D:/python3.7/lib/site-packages/airtest/report/image/download_log.svg" /></a>
+                      </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="info info2">
+                <div class="info-left"></div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Executors</span></div>
+                  <div class="info-content">
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      
+                        <div class="info-name"><span lang="en">Author:</span> janson</div>
+                      
+                    </div>
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      <div class="info-file" title="E:\黄振旭\费用管理系统自动化测试用例\air\test01_upload_invoice.air\test01_upload_invoice.py">test01_upload_invoice.air
+                        <img id="copy_path" path="E:\黄振旭\费用管理系统自动化测试用例\air\test01_upload_invoice.air\test01_upload_invoice.py" title="copy file path to clipboard" src="D:/python3.7/lib/site-packages/airtest/report/image/copy.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="device" id='device'>
+          </div>
+          <!-- 可以额外显示自定义模块，支持插入Html内容 -->
+          
+          <div class="gallery">
+            <div class="info-title"><span lang="en">Quick view</span></div>
+            <div class="content">
+            </div>
+          </div>
+
+          <!--单步-->
+          
+          
+          <div class="steps">
+            <div class="content">
+              <div class="steps-head">
+                <div class="head-left">
+                  <div class="order" id='order'><span lang="en">order</span></div>
+                  <div class="order" id='duration'><span lang="en">duration</span></div>
+                  <div class="order" id='status'><span lang="en">status</span></div>
+                </div>
+                <div class="head-right">
+                  <span lang="en" class="jump-wrong" id='jump-wrong'>Jump to wrong step</span>
+                  <span lang="en">Filter by:</span>
+                  <span class="filters">
+                    <span lang="en" class="filter" id="all" alt="show all steps">All</span>
+                    <span lang="en" class="filter" id='success' alt="show success steps only">Success</span>
+                    <span lang="en" class="filter" id='fail' alt="show failed steps only">Failed</span>
+                    <span lang="en" class="filter" id="assert" alt="show steps with assertion only">Assert</span>
+                  </span>
+                </div>
+              </div>
+              <div class="steps-content">
+                <div class="step-left" id='step-left'>
+                  <div class="step-list"></div>
+                  <div id="pageTool"></div>
+                </div>
+                <div class="step-right" id='step-right'></div>
+              </div>
+            </div>
+            
+            </div>
+        </div>
+        
+      
+      <div class="footer">
+        <div class="footer-content">
+          <div class="foo">
+            <div class="interfaces">
+              <a class="icon" href="https://github.com/AirtestProject/Airtest"  target="_blank">
+                <img src="D:/python3.7/lib/site-packages/airtest/report/image/Airtest.png" alt="airtest">
+              </a>
+              <a class="icon" href="https://github.com/AirtestProject/poco"  target="_blank">
+                <img src="D:/python3.7/lib/site-packages/airtest/report/image/poco.png" alt="Poco">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="apps">
+              <a class="icon ide" href="http://airtest.netease.com/"  target="_blank">
+                <img src="D:/python3.7/lib/site-packages/airtest/report/image/AirtestIDE.png" alt="AirtestIDE">
+              </a>
+              <a class="icon" href="https://airlab.163.com/"  target="_blank">
+                <img src="D:/python3.7/lib/site-packages/airtest/report/image/AirLab.png" alt="AirLab">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="corp">
+                <img src="D:/python3.7/lib/site-packages/airtest/report/image/netease.png" alt="NetEase">
+                <span lang="en">© 1997 - 2019 NetEase, Inc. All Rights Reserved.</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+      
+      </div>
+      <!-- 录屏 -->
+      <div class="row gif-wrap show">
+          <div class="menu">
+            <div class="pattern pattern1">
+              <div class="minimize">
+                <img title="minimize" src="D:/python3.7/lib/site-packages/airtest/report/image/minimize.svg" />
+              </div>
+              <div class="close">
+                <img title="close" src="D:/python3.7/lib/site-packages/airtest/report/image/close.svg" />
+              </div>
+            </div>
+            <div class="pattern pattern2">
+              <div class="maximize">
+                <img title="maximize" src="D:/python3.7/lib/site-packages/airtest/report/image/maximize.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+        <!-- max pic -->
+      <div id='magnify' class="mask hide">
+        <div class="content">
+        </div>
+      </div>
+    </div>
+
+  <link href="D:/python3.7/lib/site-packages/airtest/report/css/monokai_sublime.min.css" rel="stylesheet">
+  <script src="D:/python3.7/lib/site-packages/airtest/report/js/highlight.min.js"></script>
+  <script type="text/javascript" src="D:/python3.7/lib/site-packages/airtest/report/js/paging.js"></script>
+  <script src="D:/python3.7/lib/site-packages/airtest/report/js/report.js"></script>
+</body>
+</html>

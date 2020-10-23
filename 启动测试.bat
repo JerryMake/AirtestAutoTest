@@ -1,0 +1,2 @@
+python runCase.py
+pause()
