@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<html>
+<head>
+    <title>测试报告</title>
+    <style>
+        .fail {
+            color: red;
+			width: 7emem;
+			text-align: center;
+        }
+        .success {
+            color: green;
+			width: 7emem;
+			text-align: center;
+        }
+		.details-col-elapsed {
+			width: 7em;
+			text-align: center;
+		}
+		.details-col-msg {
+			width: 7em;
+			text-align: center;
+			background-color:#ccc;
+		}
+    </style>
+</head>
+<body>
+<div>
+<div class="panel panel-primary" style="margin-right: 20px;">
+	<div class="panel-heading">
+		<h2>
+			《{{project}}》测试结果
+		</h2>
+	</div>
+	<div class="panel-body">
+		<h4>
+			开始时间：{{stime}}
+		</h4>
+		<h4>
+			结束时间：{{etime}}
+		</h4>
+		<h4>
+			累计耗时：<span style="background-color:lightgray;border-radius:5px;padding-left:3px;padding-right:3px;"><font color="blue">{{duration}}秒</font></span></h4>
+		<h4>测试结果：Total-&nbsp;<font color="DodgerBlue">{{results|length}}</font>,&nbsp;<font color="green">Success-&nbsp{{success}}</font>,&nbsp;Fail-&nbsp;<font color="red">{{fail}}</font></h4>
+
+	    <table width="800" border="thin" cellspacing="0" cellpadding="0" class='table table-striped'>
+	        <tr  width="600">
+	            <th width="300" class='details-col-msg'>用例名称</th>
+	            <th class='details-col-msg'>执行结果</th>
+	        </tr>
+	        {% for r in results %}
+	        <tr>
+	            <td class='details-col-elapsed'><a href="log/{{r.name}}/log.html" target="view_window">{{r.name}}</a></td>
+	            <td class="{{'success' if r.result else 'fail'}}">{{"成功" if r.result else "失败"}}</td>
+	        </tr>
+	        {% endfor %}
+	    </table>
+	</div>
+</div>
+</body>
+</html>
