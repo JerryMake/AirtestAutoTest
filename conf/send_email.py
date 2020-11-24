@@ -9,21 +9,21 @@ from email.mime.text import MIMEText
 from conf.settings import send_email_path, receive_email_path, email_authorization_code, message_title
 
 class send_email():
-    #定义发送邮件
+    # 定义发送邮件
     def send_mail(self, file_new):
         f = open(file_new, "rb")
         mail_body = f.read()
         f.close()
-        #编写HTML类型邮件正文
+        # 编写HTML类型邮件正文
         msg = MIMEText(mail_body, "html", "utf-8")
         msg["Subject"] = Header(message_title, "utf-8")
 
-        #发送邮箱服务器
+        # 发送邮箱服务器
         smtp = smtplib.SMTP()
         smtp.connect("smtp.qq.com")
-        #发送邮箱用户/qq邮箱smtp的授权码
+        # 发送邮箱用户/qq邮箱smtp的授权码
         smtp.login(send_email_path,email_authorization_code)
-        #发送邮箱/接收邮箱/邮件主题
+        # 发送邮箱/接收邮箱/邮件主题
         smtp.sendmail(send_email_path, receive_email_path, msg.as_string())
         smtp.quit()
         print("邮件已发送")
