@@ -68,13 +68,13 @@ class Air_Case_Handler(AirtestCase):
                 # html每个用例测试报告（html文件）存放的路径，root\log\\xxx\log.html
                 html = os.path.join(air_log,"log.html")
                 if deviceType.upper() == "WEB":
-                    args = Namespace(device=[],log=air_log, recording=None, script=script,language="zh",compress=0)
+                    args = Namespace(device=[], log=air_log, recording=None, script=script, language="zh", compress=0)
                 elif deviceType.upper() == "APP":
-                    args = Namespace(device=device, log = air_log, recording=airDirName+".mp4", script=script,language="zh",compress=0)
+                    args = Namespace(device=device, log=air_log, recording=airDirName+".mp4", script=script, language= "zh", compress=0)
                 else:
                     args = Namespace(device=device, log=air_log, recording=None, script=script,language="zh",compress=0)
                 try:
-                    run_script(args,AirtestCase) # airtest的run方法
+                    run_script(args, AirtestCase) # airtest的run方法
                 except AssertionError as e:
                     pass
                 finally:
@@ -82,7 +82,7 @@ class Air_Case_Handler(AirtestCase):
                     rpt = report.LogToHtml(script, air_log)
                     # "log_template.html"报告名称，输出文件是HTML文件
                     rpt.report("log_template.html", output_file=html)
-                    result = {}
+                    result={}
                     result["name"] = airName.replace('.air', '')
                     result["result"] = rpt.test_result
                     results.append(result)
@@ -110,8 +110,8 @@ class Air_Case_Handler(AirtestCase):
             else:
                 fail += 1
         report_name = "report_"+end_time.strftime("%Y%m%d%H%M%S")+".html"
-        html = template.render({"results": results,"device":device,"stime":start_time_fmt,'etime':end_time_fmt,'duration':duration,"project":project_name,"success":success,"fail":fail})
-        output_file = os.path.join(root_path,"report" ,report_name)
+        html = template.render({"results": results, "device": device, "stime": start_time_fmt, 'etime':end_time_fmt,'duration': duration, "project": project_name, "success": success, "fail": fail})
+        output_file = os.path.join(root_path, "report", report_name)
         with io.open(output_file, 'w', encoding="utf-8") as f:
             f.write(html)
 
