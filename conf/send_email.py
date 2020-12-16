@@ -3,6 +3,7 @@ import os
 import smtplib
 import unittest
 from HTMLTestRunner import HTMLTestRunner
+# 需要下载对应Python版本的HTMLTestRunner插件放在Python的Lib目录下
 import time
 from email.header import Header
 from email.mime.text import MIMEText
@@ -22,18 +23,18 @@ class send_email():
         smtp = smtplib.SMTP()
         smtp.connect("smtp.qq.com")
         # 发送邮箱用户/qq邮箱smtp的授权码
-        smtp.login(send_email_path,email_authorization_code)
+        smtp.login(send_email_path, email_authorization_code)
         # 发送邮箱/接收邮箱/邮件主题
         smtp.sendmail(send_email_path, receive_email_path, msg.as_string())
         smtp.quit()
         print("邮件已发送")
 
     # 查找测试报告目录，找到最新生成的测试报告文件
-    def new_report(self,test_report):
+    def new_report(self, test_report):
         lists = os.listdir(test_report)
         # 重新按时间对目录下的文件进行排序
         lists.sort(key=lambda fn: os.path.getmtime(test_report + "\\" +fn))
-        file_new = os.path.join(test_report,lists[-1])
+        file_new = os.path.join(test_report, lists[-1])
         print(file_new)
         return file_new
 
