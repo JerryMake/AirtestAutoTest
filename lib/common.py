@@ -4,11 +4,11 @@ import configparser
 from functools import wraps
 import logging,time
 
-nowPath = lambda p:os.path.abspath(os.path.join(os.path.dirname(__file__),p))
-prePath = lambda *x:os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))),*x)
+nowPath = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
+prePath = lambda *x: os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), *x)
 
-nowTime = lambda:datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-nowDate = lambda:datetime.datetime.now().strftime("%Y-%m-%d")
+nowTime = lambda: datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+nowDate = lambda: datetime.datetime.now().strftime("%Y-%m-%d")
 
 
 

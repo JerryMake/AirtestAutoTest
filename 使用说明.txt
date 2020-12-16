@@ -1,3 +1,11 @@
 1、将录制好的air脚本放到air目录下
 2、编辑conf/settings.py，配置设备信息、应用类型等
 3、点击:启动执行.bat执行测试
+4、录屏功能仅适用于安卓平台，所以当测试设备是安卓真机或者部分安卓模拟器时，我们才能够对脚本的运行过程进行录屏操作。
+   在命令行使用 airtest run 运行脚本时，我们可以通过添加 --recording 参数来录制脚本运行的视频。
+   例如：
+   airtest run "D:\test\Airtest_example.air"  --device android://127.0.0.1:5037/emulator-5554?cap_method=MINICAP_STREAM^&^&ori_method=MINICAPORI^&^&touch_method=MINITOUCH --log "D:/test\41f68fdf265d8c13998d0a1a7b992889" --recording
+   airtest1.1.6支持 在 --recording 参数后面加上一个文件名来命名录屏文件 ，例如 --recording test.mp4
+   如果有不止一台手机在运行，会把文件命名为 手机名_test.mp4 。另外我们需要注意下，传入的录屏文件名必须以 .mp4 作为结尾！
+
+                                                        -----引用自官方博文：https://juejin.cn/post/6886254968471289864

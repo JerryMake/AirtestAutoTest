@@ -1,6 +1,6 @@
-#coding = utf-8
-#author     :CJQ
-#Description:   a class that used to write log to file and console
+# coding = utf-8
+# author     :CJQ
+# Description:   a class that used to write log to file and console
 #               get_logger: return the loogger
 #               MyLog:use static method to call the Log
 
@@ -14,18 +14,18 @@ class Log:
         logName = nowDate()+".log"
         fName = prePath("log", logName)
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.INFO)  #设置Logger的日志等级：INFO
-        #create handler
-        #detailLog = os.path.join(logPath, "detailLog")
+        self.logger.setLevel(logging.INFO)  # 设置Logger的日志等级：INFO
+        # create handler
+        # detailLog = os.path.join(logPath, "detailLog")
         currentPath = fName
-        fh = logging.FileHandler(currentPath,encoding="utf-8")
+        fh = logging.FileHandler(currentPath, encoding="utf-8")
         formatter = logging.Formatter( '[%(asctime)s][%(thread)d][%(filename)s][line: %(lineno)d][%(levelname)s] ## %(message)s')
         fh.setFormatter(formatter)
-        fh.setLevel(logging.INFO)   #日志文件输入log等级：INFO
+        fh.setLevel(logging.INFO)   # 日志文件输入log等级：INFO
 
         sh = logging.StreamHandler()
         sh.setFormatter(formatter)
-        sh.setLevel(logging.WARNING) #控制台输入log等级：WARNING
+        sh.setLevel(logging.WARNING)  # 控制台输入log等级：WARNING
 
         self.logger.addHandler(fh)
         self.logger.addHandler(sh)
@@ -38,7 +38,7 @@ class MyLog:
     mutex = threading.Lock()
     def __init__(self):
         pass
-    #静态方法，不用实例化就可以直接调用该方法MyLog.get_log()
+    # 静态方法，不用实例化就可以直接调用该方法MyLog.get_log()
     @staticmethod
     def get_log():
         if MyLog.log is None:

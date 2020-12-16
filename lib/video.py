@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Leo Zeng
 '''
 pc端录屏
 '''

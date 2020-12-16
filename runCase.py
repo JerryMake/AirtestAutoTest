@@ -1,4 +1,4 @@
-from airtest.cli.runner import AirtestCase,run_script
+from airtest.cli.runner import AirtestCase, run_script
 import airtest.report.report as report
 
 from conf.send_email import send_email
@@ -12,7 +12,7 @@ from airtest.core.api import auto_setup, log, connect_device
 
 
 class Air_Case_Handler(AirtestCase):
-    def __init__(self,dev_id):
+    def __init__(self, dev_id):
         ''' 初始化，如果是web直接通过，如果不是，传入设备id
         connect_device 连接该设备
         '''
@@ -28,7 +28,7 @@ class Air_Case_Handler(AirtestCase):
 
     def tearDown(self):
         # 程序开始后
-        super(Air_Case_Handler,self).tearDown()
+        super(Air_Case_Handler, self).tearDown()
 
 
     def run_air(self,air_dir,device):
@@ -53,12 +53,11 @@ class Air_Case_Handler(AirtestCase):
             if file.endswith(".air"):
                 airName = file
                 # 把“.air”换成空格,因为airtest自动生成的文件名带.air
-                airDirName = file.replace(".air","")
+                airDirName = file.replace(".air", "")
                 # root\air\xxx.air，每个用例的脚本路径
-                script = os.path.join(air_dir,file)
+                script = os.path.join(air_dir, file)
                 # root\log\\xxx,每个用例的测试报告
-                air_log = os.path.join(root_path,"log\\" + airDirName)
-                 # 如果air_log是目录，删除其目录下的子目录及文件夹
+                air_log = os.path.join(root_path, "log\\" + airDirName)  # 如果air_log是目录，删除其目录下的子目录及文件夹
                 if os.path.isdir(air_log):
                     # print(air_log)
                     shutil.rmtree(air_log)
@@ -66,15 +65,15 @@ class Air_Case_Handler(AirtestCase):
                 else:
                     os.makedirs(air_log)
                 # html每个用例测试报告（html文件）存放的路径，root\log\\xxx\log.html
-                html = os.path.join(air_log,"log.html")
+                html = os.path.join(air_log, "log.html")
                 if deviceType.upper() == "WEB":
                     args = Namespace(device=[], log=air_log, recording=None, script=script, language="zh", compress=0)
                 elif deviceType.upper() == "APP":
                     args = Namespace(device=device, log=air_log, recording=airDirName+".mp4", script=script, language= "zh", compress=0)
                 else:
-                    args = Namespace(device=device, log=air_log, recording=None, script=script,language="zh",compress=0)
+                    args = Namespace(device=device, log=air_log, recording=None, script=script, language="zh", compress=0)
                 try:
-                    run_script(args, AirtestCase) # airtest的run方法
+                    run_script(args, AirtestCase)  # airtest的run方法
                 except AssertionError as e:
                     pass
                 finally:
@@ -118,7 +117,7 @@ class Air_Case_Handler(AirtestCase):
 if __name__ == "__main__":
     for device in devices:
         test = Air_Case_Handler(device)
-        test.run_air(air_path,device)
+        test.run_air(air_path, device)
 
     # 发送测试报告到邮箱
     email = send_email()
