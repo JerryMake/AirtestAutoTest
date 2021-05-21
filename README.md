@@ -1,5 +1,6 @@
 # AirtestAutoTest
 基于Airtest的自动化测试框架，生成测试报告，并通过邮件发送报告。
+Based on airtest, the automatic test framework generates test reports and sends reports by email.
 # -----------------------------------------------------------------
 2021-5-10 21:26 Beijingtime
 由于有的小伙伴遇到了运行时的报错：AttributeError: 'Namespace' object has no attribute 'no_image'
